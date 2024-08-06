@@ -1,17 +1,17 @@
 import css from './Options.module.css'
 
-export default function Options({listStats, handleClick}) {
+export default function Options({listStats, handleClick, totalFeedback, resetState }) {
     // console.log(props);
     const valuesStat = Object.keys(listStats);
-    console.log(valuesStat);
+    
     return (
         <ul className={css.buttonList}>
             {valuesStat.map((grade) => {
                 return (<li key={grade}>
-                    <button onClick={handleClick} >{grade}</button>
+                    <button onClick={() => handleClick( grade )} >{grade}</button>
                 </li>)
             })}
-            <li><button>Reset</button></li>
+            { totalFeedback !== 0 && <li><button onClick={resetState}>Reset</button></li>}
         </ul>
     )
 }
