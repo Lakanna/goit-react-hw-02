@@ -8,10 +8,10 @@ export default function Options({listStats, handleClick, totalFeedback, resetSta
         <ul className={css.buttonList}>
             {valuesStat.map((grade) => {
                 return (<li key={grade}>
-                    <button onClick={() => handleClick( grade )} >{grade}</button>
+                    <button className={css.optionButton} onClick={() => handleClick( grade )} >{grade}</button>
                 </li>)
             })}
-            { totalFeedback !== 0 && <li><button onClick={resetState}>Reset</button></li>}
+            { totalFeedback !== 0 && <li><button className={css.optionButton} onClick={resetState}>Reset</button></li>}
         </ul>
     )
 }
