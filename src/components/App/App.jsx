@@ -44,7 +44,7 @@ function App() {
       <>
           <Description />
           <Options listStats={grades} handleClick={updateFeedback} totalFeedback={totalFeedback} resetState={resetState} />
-          { totalFeedback === 0  && <Notification />}
+          { totalFeedback === 0  && <Notification>No feedback yet</Notification>}
           { totalFeedback !== 0 && <Feedback listStats={grades} totalFeedback={totalFeedback} positiveFeedback={positiveFeedback}  />}
       </>
   )
