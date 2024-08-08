@@ -36,7 +36,7 @@ function App() {
   }
 
    const totalFeedback = grades.good + grades.bad + grades.neutral;
-   const positiveFeedback = Math.round(((grades.good + grades.neutral)/ totalFeedback) * 100)
+   const positiveFeedback = totalFeedback > 0? Math.round((grades.good/ totalFeedback) * 100):0
 
    
  
@@ -44,8 +44,8 @@ function App() {
       <>
           <Description />
           <Options listStats={grades} handleClick={updateFeedback} totalFeedback={totalFeedback} resetState={resetState} />
-          { totalFeedback === 0  && <Notification>No feedback yet</Notification>}
-          { totalFeedback !== 0 && <Feedback listStats={grades} totalFeedback={totalFeedback} positiveFeedback={positiveFeedback}  />}
+          { totalFeedback === 0 ? <Notification>No feedback yet</Notification> : <Feedback listStats={grades} totalFeedback={totalFeedback} positiveFeedback={positiveFeedback}  />}
+          
       </>
   )
 }
